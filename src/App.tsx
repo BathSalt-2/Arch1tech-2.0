@@ -38,7 +38,7 @@ const GROQ_API = 'https://api.groq.com/openai/v1/chat/completions';
 
 async function groqCall(apiKey: string, system: string, user: string, jsonMode = false): Promise<string> {
   const body: Record<string, unknown> = {
-    model: 'llama3-70b-8192',
+    model: 'llama-3.3-70b-versatile',
     messages: [
       { role: 'system', content: system },
       { role: 'user', content: user }
@@ -574,7 +574,7 @@ function AstridTab({ apiKey }: { apiKey: string }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
         body: JSON.stringify({
-          model: 'llama3-70b-8192',
+          model: 'llama-3.3-70b-versatile',
           messages: [{ role: 'system', content: ASTRID_SYSTEM }, ...history],
           temperature: 0.85,
         }),
